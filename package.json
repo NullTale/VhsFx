@@ -1,0 +1,25 @@
+{
+  "name": "www.nulltale.vhsfx",
+  "displayName": "VhsFx",
+  "version": "1.0.0",
+  "unity": "2022.1",
+  "description": "Vhs post processing for unity Urp",
+  "documentationUrl": "https://github.com/NullTale/VhsFx",
+  "licensesUrl": "https://github.com/NullTale/VhsFx/master/LICENSE.md",
+  "author": {
+    "name": "NullTale",
+    "email": "nulltale@gmail.com",
+    "url": "https://twitter.com/NullTale"
+  },
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "14.0.6"
+  },
+  "hideInEditor": false,
+  "samples": [
+      {
+          "displayName": "Sample Scene",
+          "description": "",
+          "path": "Samples~"
+      }
+    ]
+}

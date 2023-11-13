@@ -1,0 +1,18 @@
+{
+    "name": "VhsFx.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d0831f130bd66a843af27e58d4a2e45a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
