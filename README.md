@@ -5,6 +5,14 @@ Controlled via volume profile, works as render feature
 
 ![_cover](https://github.com/NullTale/VhsFx/assets/1497430/136361c4-acfc-4142-938a-69c9bdf2b2be) <br>
 
+## Part of Artwork Project
+
+* [Vhs]
+* [OldMovie](https://github.com/NullTale/OldMovieFx)
+* [GradientMap](https://github.com/NullTale/GradientMapFilter)
+* [ScreenOutline](https://github.com/NullTale/OutlineFilter)
+* [ImageFlow](https://github.com/NullTale/FlowFx)
+  
 ## Usage
 Install via Unity [PackageManager](https://docs.unity3d.com/Manual/upm-ui-giturl.html) <br>
 Add `VhsFx` feature to the UrpRenderer, control via volume
