@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 //  VhsFx © NullTale - https://twitter.com/NullTale/
 namespace VolFx
 {
-    [Serializable, VolumeComponentMenu("Vol/Vhs")]
+    [Serializable, VolumeComponentMenu("VolFx/Vhs")]
     public sealed class VhsVol : VolumeComponent, IPostProcessComponent
     {
         public ClampedFloatParameter _weight  = new ClampedFloatParameter(0f, 0f, 1f);

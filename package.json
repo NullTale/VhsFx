@@ -1,7 +1,7 @@
 {
   "name": "www.nulltale.vhsfx",
   "displayName": "VhsFx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "unity": "2022.1",
   "description": "Vhs post processing for unity Urp",
   "documentationUrl": "https://github.com/NullTale/VhsFx",

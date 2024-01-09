@@ -54,7 +54,7 @@ namespace VolFx
             return true;
         }
 
-        internal override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
+        protected override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
         protected override void _editorSetup(string folder, string asset)
         {
 #if UNITY_EDITOR
