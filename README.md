@@ -9,7 +9,7 @@ Controlled via volume profile, works as render feature
 ![_cover](https://github.com/NullTale/VhsFx/assets/1497430/136361c4-acfc-4142-938a-69c9bdf2b2be) <br>
 
 ## Part of Artwork Project
-All effects can work individually or as a part of [VolFx](https://github.com/NullTale/VolFx) framework
+All effects can work individually or as a part of [VolFx](https://github.com/NullTale/VolFx)
 * [Vhs]
 * [OldMovie](https://github.com/NullTale/OldMovieFx)
 * [GradientMap](https://github.com/NullTale/GradientMapFilter)
