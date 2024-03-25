@@ -1,6 +1,7 @@
 # Vhs Fx
 
 [![Twitter](https://img.shields.io/badge/Follow-Twitter?logo=twitter&color=white)](https://twitter.com/NullTale)
+[![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=white)](https://discord.gg/CkdQvtA5un)
 [![Boosty](https://img.shields.io/badge/Support-Boosty?logo=boosty&color=white)](https://boosty.to/nulltale)
 
 Vhs post effect for Unity Urp <br>
@@ -16,6 +17,7 @@ All effects can work individually or as a part of [VolFx](https://github.com/Nul
 * [ScreenOutline](https://github.com/NullTale/OutlineFilter)
 * [ImageFlow](https://github.com/NullTale/FlowFx)
 * [Pixelation](https://github.com/NullTale/PixelationFx)
+* [Ascii](https://github.com/NullTale/AsciiFx)
 * ...
   
 ## Usage
