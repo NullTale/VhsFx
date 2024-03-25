@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 //  VhsFx © NullTale - https://twitter.com/NullTale/
 namespace VolFx.Editor
 {
-    [CustomPropertyDrawer(typeof(VolFx.Pass), true)]
+    [CustomPropertyDrawer(typeof(VolFxProc.Pass), true)]
     public class PassDrawer : PropertyDrawer
     {
         // =======================================================================

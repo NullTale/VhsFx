@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ using UnityEngine;
 namespace VolFx
 {
     [ShaderName("Hidden/Vol/Vhs")]
-    public class VhsPass : VolFx.Pass
+    public class VhsPass : VolFxProc.Pass
     {
 		private static readonly int s_VhsTex    = Shader.PropertyToID("_VhsTex");
         private static readonly int s_XScanline = Shader.PropertyToID("_xScanline");
@@ -58,7 +59,8 @@ namespace VolFx
         protected override void _editorSetup(string folder, string asset)
         {
 #if UNITY_EDITOR
-			_clip = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}\\Vhs"})
+			var sep = Path.DirectorySeparatorChar;
+			_clip = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs"})
 							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
 							   .Where(n => n != null)
 							   .ToArray();
