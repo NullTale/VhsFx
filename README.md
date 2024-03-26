@@ -4,13 +4,13 @@
 [![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=white)](https://discord.gg/CkdQvtA5un)
 [![Boosty](https://img.shields.io/badge/Support-Boosty?logo=boosty&color=white)](https://boosty.to/nulltale)
 
-Vhs post effect for Unity Urp <br>
-Controlled via volume profile, works as render feature
+Vhs post effect for Unity Urp, controlled via volume profile<br>
+Works as render feature or a pass for selective post processing [VolFx](https://github.com/NullTale/VolFx)
 
 ![_cover](https://github.com/NullTale/VhsFx/assets/1497430/136361c4-acfc-4142-938a-69c9bdf2b2be) <br>
 
 ## Part of Artwork Project
-All effects can work individually or as a part of [VolFx](https://github.com/NullTale/VolFx)
+All effects can work individually or as a part of 
 * [Vhs]
 * [OldMovie](https://github.com/NullTale/OldMovieFx)
 * [GradientMap](https://github.com/NullTale/GradientMapFilter)
@@ -18,6 +18,7 @@ All effects can work individually or as a part of [VolFx](https://github.com/Nul
 * [ImageFlow](https://github.com/NullTale/FlowFx)
 * [Pixelation](https://github.com/NullTale/PixelationFx)
 * [Ascii](https://github.com/NullTale/AsciiFx)
+* [Dither](https://github.com/NullTale/DitherFx)
 * ...
   
 ## Usage
