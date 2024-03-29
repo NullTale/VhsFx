@@ -10,7 +10,6 @@ Works as render feature or a pass for selective post processing [VolFx](https://
 ![_cover](https://github.com/NullTale/VhsFx/assets/1497430/136361c4-acfc-4142-938a-69c9bdf2b2be) <br>
 
 ## Part of Artwork Project
-All effects can work individually or as a part of 
 * [Vhs]
 * [OldMovie](https://github.com/NullTale/OldMovieFx)
 * [GradientMap](https://github.com/NullTale/GradientMapFilter)
