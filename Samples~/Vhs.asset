@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 0.3
   contrast:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -20.5
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 0.9103774, g: 0.9200663, b: 1, a: 1}
@@ -40,16 +40,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb2952b95454955ba507c3d96778a76, type: 3}
   m_Name: VhsVol
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   _weight:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.749
   _bleed:
     m_OverrideState: 1
-    m_Value: 0.85
+    m_Value: 2.51
   _rocking:
     m_OverrideState: 1
-    m_Value: 0.0202
+    m_Value: 0.0059
+  _tape:
+    m_OverrideState: 0
+    m_Value: 1
+  _noise:
+    m_OverrideState: 0
+    m_Value: 0.48
+  _glitch:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,9 +72,9 @@ MonoBehaviour:
   m_Name: Vhs
   m_EditorClassIdentifier: 
   components:
+  - {fileID: -4713384070230122667}
   - {fileID: -8370247920593371965}
   - {fileID: 2846570248330515628}
-  - {fileID: -4713384070230122667}
 --- !u!114 &2846570248330515628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -87,7 +96,7 @@ MonoBehaviour:
     m_Value: 0.51
   intensity:
     m_OverrideState: 1
-    m_Value: 0.32
+    m_Value: 0.57
   scatter:
     m_OverrideState: 1
     m_Value: 0.28
