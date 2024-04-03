@@ -27,6 +27,11 @@ Add `VhsFx` feature to the UrpRenderer, control via volume profile
 https://github.com/NullTale/VhsFx.git
 ```
 
+### Video tutorial by SpeedTutor Channel
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/jqUtECoxNVg/0.jpg)](http://www.youtube.com/watch?v=jqUtECoxNVg "Video Title")
+
+
+### Tech
 Tested with WebGl and Unity 2022. <br>
 For noise generation used set of images to work properly in Web. <br>
 Distortion artifacts generated procedurally.
