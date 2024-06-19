@@ -21,6 +21,8 @@ namespace VolFx
 
 		[Tooltip("Default Tape type")]
 		public Mode  _mode   = Mode.Tape;
+		[Tooltip("Default Use tape texture as a negative")]
+		public bool  _negative;
 		[Tooltip("Default Glitch color")]
 		public Color _glitch = Color.red;
 		[HideInInspector]
@@ -58,6 +60,8 @@ namespace VolFx
             
 			var glitch = settings._glitch.overrideState ? settings._glitch.value : _glitch;
 			
+			var neg = settings._negative.overrideState ? settings._negative.value : _negative;
+			
 			if (_yScanline >= 1)
 				_yScanline = Random.value;
             
@@ -69,7 +73,7 @@ namespace VolFx
 			mat.SetFloat(s_XScanline, _xScanline);
 			mat.SetFloat(s_Rocking, settings._rocking.value * settings._weight.value);
 			mat.SetColor(s_Glitch, glitch);
-			mat.SetFloat(s_Tape, settings._tape.value);
+			mat.SetFloat(s_Tape, neg ? -settings._tape.value : settings._tape.value);
 			mat.SetFloat(s_Noise, Mathf.Lerp(1000, 2, settings._noise.value));
             
             // params
