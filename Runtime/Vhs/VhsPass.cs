@@ -1,6 +1,8 @@
+using System;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 //  VhsFx © NullTale - https://twitter.com/NullTale/
 namespace VolFx
@@ -9,25 +11,37 @@ namespace VolFx
     public class VhsPass : VolFxProc.Pass
     {
 		private static readonly int s_VhsTex    = Shader.PropertyToID("_VhsTex");
-        private static readonly int s_XScanline = Shader.PropertyToID("_xScanline");
-        private static readonly int s_YScanline = Shader.PropertyToID("_yScanline");
-        private static readonly int s_Rocking   = Shader.PropertyToID("_Rocking");
+		private static readonly int s_XScanline = Shader.PropertyToID("_xScanline");
+		private static readonly int s_YScanline = Shader.PropertyToID("_yScanline");
+		private static readonly int s_Rocking   = Shader.PropertyToID("_Rocking");
 		private static readonly int s_Intensity = Shader.PropertyToID("_Intensity");
 		private static readonly int s_Glitch    = Shader.PropertyToID("_Glitch");
+		private static readonly int s_Tape      = Shader.PropertyToID("_Tape");
+		private static readonly int s_Noise     = Shader.PropertyToID("_Noise");
 
+		[Tooltip("Default Tape type")]
+		public Mode  _mode   = Mode.Tape;
 		[Tooltip("Default Glitch color")]
 		public Color _glitch = Color.red;
 		[HideInInspector]
 		public  float       _frameRate = 20f;
 		[HideInInspector]
         public  Texture2D[] _clip;
-		private                 float _playTime;
-		private                 float _yScanline;
-		private                 float _xScanline;
-		private static readonly int   s_Tape  = Shader.PropertyToID("_Tape");
-		private static readonly int   s_Noise = Shader.PropertyToID("_Noise");
+		
+		private float _playTime;
+		private float _yScanline;
+		private float _xScanline;
+		private Mode  _modePrev;
 
 		protected override bool Invert => true;
+
+		// =======================================================================
+		public enum Mode
+		{
+			Tape,
+			Noise,
+			Shades
+		}
 
         // =======================================================================
         public override bool Validate(Material mat)
@@ -65,15 +79,25 @@ namespace VolFx
             return true;
         }
 
-        protected override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
+        protected override bool _editorValidate => _mode != _modePrev || _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
         protected override void _editorSetup(string folder, string asset)
         {
 #if UNITY_EDITOR
 			var sep = Path.DirectorySeparatorChar;
-			_clip = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs"})
+			var path = _mode switch
+			{
+				Mode.Tape   => "Tape",
+				Mode.Noise  => "Noise",
+				Mode.Shades => "Shades",
+				_           => throw new ArgumentOutOfRangeException()
+			};
+			
+			_clip = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs{sep}{path}"})
 							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
 							   .Where(n => n != null)
 							   .ToArray();
+			
+			_modePrev = _mode;
 #endif
         }
     }
