@@ -29,7 +29,12 @@ namespace VolFx
 		[HideInInspector]
 		public  float       _frameRate = 20f;
 		[HideInInspector]
-        public  Texture2D[] _clip;
+        public  Texture2D[] _tape;
+		[HideInInspector]
+        public  Texture2D[] _noise;
+		[HideInInspector]
+        public  Texture2D[] _shades;
+        private  Texture2D[] _clip;
 		
 		private float _playTime;
 		private float _yScanline;
@@ -54,6 +59,15 @@ namespace VolFx
             var isActive = settings.IsActive();
 			if (isActive == false)
                 return false;
+			
+			var mode = settings._mode.overrideState ? settings._mode.value : _mode;
+			_clip = mode switch
+			{
+				Mode.Tape   => _tape,
+				Mode.Noise  => _noise,
+				Mode.Shades => _shades,
+				_           => throw new ArgumentOutOfRangeException()
+			};
 
             // scale line
 			_yScanline += Time.deltaTime * 0.01f * settings._bleed.value;
@@ -90,19 +104,21 @@ namespace VolFx
         {
 #if UNITY_EDITOR
 			var sep = Path.DirectorySeparatorChar;
-			var path = _mode switch
-			{
-				Mode.Tape   => "Tape",
-				Mode.Noise  => "Noise",
-				Mode.Shades => "Shades",
-				_           => throw new ArgumentOutOfRangeException()
-			};
 			
-			_clip = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs{sep}{path}"})
+			_tape = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs{sep}Tape"})
+							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
+							   .Where(n => n != null)
+							   .ToArray();
+			_noise = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs{sep}Noise"})
+							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
+							   .Where(n => n != null)
+							   .ToArray();
+			_shades = UnityEditor.AssetDatabase.FindAssets("t:texture", new string[] {$"{folder}{sep}Vhs{sep}Shades"})
 							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
 							   .Where(n => n != null)
 							   .ToArray();
 			
+			_clip     = _tape;
 			_modePrev = _mode;
 #endif
         }
