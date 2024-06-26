@@ -15,6 +15,7 @@ namespace VolFx
         public ClampedFloatParameter _tape     = new ClampedFloatParameter(1f, 0f, 2f);
         public BoolParameter         _negative = new BoolParameter(false);
         public ClampedFloatParameter _noise    = new ClampedFloatParameter(.5f, 0f, 1f);
+        public ClampedFloatParameter _flickering     = new ClampedFloatParameter(1f, 0f, 2f);
         public ColorParameter        _glitch   = new ColorParameter(new Color(1f, 0f, 0f, 1));
         
         // =======================================================================

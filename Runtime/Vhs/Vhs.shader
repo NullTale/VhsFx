@@ -30,6 +30,7 @@
 			float _Tape;
 			float _Noise;
 			fixed4 _Glitch;
+			float  _Flickering;
 			
             struct appdata
             {
@@ -84,8 +85,8 @@
 				{
 					vhs += fixed4(bleed * _xScanline * _Glitch.rgb * _Glitch.a, 0);
 				}
-								
-				vhs += c - rand(float3(i.uv.x, i.uv.y, _xScanline)) * _xScanline / 5;
+				
+				vhs += c - (rand(float3(i.uv.x, i.uv.y, _xScanline)) * _xScanline / 5) * _Flickering;
 				return lerp(main, vhs, _Intensity);
 			}
 			ENDCG

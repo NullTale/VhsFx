@@ -10,14 +10,15 @@ namespace VolFx
     [ShaderName("Hidden/Vol/Vhs")]
     public class VhsPass : VolFxProc.Pass
     {
-		private static readonly int s_VhsTex    = Shader.PropertyToID("_VhsTex");
-		private static readonly int s_XScanline = Shader.PropertyToID("_xScanline");
-		private static readonly int s_YScanline = Shader.PropertyToID("_yScanline");
-		private static readonly int s_Rocking   = Shader.PropertyToID("_Rocking");
-		private static readonly int s_Intensity = Shader.PropertyToID("_Intensity");
-		private static readonly int s_Glitch    = Shader.PropertyToID("_Glitch");
-		private static readonly int s_Tape      = Shader.PropertyToID("_Tape");
-		private static readonly int s_Noise     = Shader.PropertyToID("_Noise");
+		private static readonly int s_VhsTex     = Shader.PropertyToID("_VhsTex");
+		private static readonly int s_XScanline  = Shader.PropertyToID("_xScanline");
+		private static readonly int s_YScanline  = Shader.PropertyToID("_yScanline");
+		private static readonly int s_Rocking    = Shader.PropertyToID("_Rocking");
+		private static readonly int s_Intensity  = Shader.PropertyToID("_Intensity");
+		private static readonly int s_Glitch     = Shader.PropertyToID("_Glitch");
+		private static readonly int s_Tape       = Shader.PropertyToID("_Tape");
+		private static readonly int s_Noise      = Shader.PropertyToID("_Noise");
+		private static readonly int s_Flickering = Shader.PropertyToID("_Flickering");
 
 		[Tooltip("Default Tape type")]
 		public Mode  _mode   = Mode.Tape;
@@ -73,6 +74,7 @@ namespace VolFx
 			mat.SetFloat(s_XScanline, _xScanline);
 			mat.SetFloat(s_Rocking, settings._rocking.value * settings._weight.value);
 			mat.SetColor(s_Glitch, glitch);
+			mat.SetFloat(s_Flickering, settings._flickering.value);
 			mat.SetFloat(s_Tape, neg ? -settings._tape.value : settings._tape.value);
 			mat.SetFloat(s_Noise, Mathf.Lerp(1000, 2, settings._noise.value));
             
