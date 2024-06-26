@@ -20,8 +20,8 @@ namespace VolFx
 		private static readonly int s_Noise      = Shader.PropertyToID("_Noise");
 		private static readonly int s_Flickering = Shader.PropertyToID("_Flickering");
 
-		[Tooltip("Default Tape type")]
-		public Mode  _mode   = Mode.Tape;
+        [Tooltip("Use single tape type to smaller build size")]
+        public Optional<Mode> _singleTape;
 		[Tooltip("Default Use tape texture as a negative")]
 		public bool  _negative;
 		[Tooltip("Default Glitch color")]
@@ -39,7 +39,6 @@ namespace VolFx
 		private float _playTime;
 		private float _yScanline;
 		private float _xScanline;
-		private Mode  _modePrev;
 
 		protected override bool Invert => true;
 
@@ -60,7 +59,7 @@ namespace VolFx
 			if (isActive == false)
                 return false;
 			
-			var mode = settings._mode.overrideState ? settings._mode.value : _mode;
+			var mode = settings._mode.value;
 			_clip = mode switch
 			{
 				Mode.Tape   => _tape,
@@ -68,6 +67,20 @@ namespace VolFx
 				Mode.Shades => _shades,
 				_           => throw new ArgumentOutOfRangeException()
 			};
+			if (_singleTape.Enabled)
+			{
+#if UNITY_EDITOR
+				if (settings._mode.overrideState && settings._mode.value != _singleTape.Value)
+					Debug.LogWarning($"VhsFx : Single tape mode is enabled, but effect uses another mode value from volume (mode override)");
+#endif
+				_clip = _singleTape.Value switch
+				{
+					Mode.Tape   => _tape,
+					Mode.Noise  => _noise,
+					Mode.Shades => _shades,
+					_           => throw new ArgumentOutOfRangeException()
+				};
+			}
 
             // scale line
 			_yScanline += Time.deltaTime * 0.01f * settings._bleed.value;
@@ -99,7 +112,8 @@ namespace VolFx
             return true;
         }
 
-        protected override bool _editorValidate => _mode != _modePrev || _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
+        protected override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null))
+												   || ((_singleTape.Enabled && _tape != null && _noise != null && _shades != null) || (_singleTape.Enabled == false && (_tape == null || _noise == null || _shades == null)));
         protected override void _editorSetup(string folder, string asset)
         {
 #if UNITY_EDITOR
@@ -117,9 +131,33 @@ namespace VolFx
 							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
 							   .Where(n => n != null)
 							   .ToArray();
+							   
+			if (_singleTape.Enabled)
+			{
+				switch (_singleTape.Value)
+				{
+					case Mode.Tape:
+					{
+						_noise  = null;
+						_shades = null;
+					} break;
+					case Mode.Noise:
+					{
+						_tape   = null;
+						_shades = null;
+					} break;
+					case Mode.Shades:
+					{
+						_tape   = null;
+						_noise  = null;
+					} break;
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+			}
 			
-			_clip     = _tape;
-			_modePrev = _mode;
+			_clip     = _tape ?? _noise ?? _shades;
+			_playTime = 0f;
 #endif
         }
     }
