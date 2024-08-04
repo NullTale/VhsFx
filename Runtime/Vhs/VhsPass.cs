@@ -4,11 +4,11 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-//  VhsFx © NullTale - https://twitter.com/NullTale/
+//  VhsFx © NullTale - https://x.com/NullTale
 namespace VolFx
 {
     [ShaderName("Hidden/Vol/Vhs")]
-    public class VhsPass : VolFxProc.Pass
+    public class VhsPass : VolFx.Pass
     {
 		private static readonly int s_VhsTex     = Shader.PropertyToID("_VhsTex");
 		private static readonly int s_XScanline  = Shader.PropertyToID("_xScanline");
@@ -20,12 +20,22 @@ namespace VolFx
 		private static readonly int s_Noise      = Shader.PropertyToID("_Noise");
 		private static readonly int s_Flickering = Shader.PropertyToID("_Flickering");
 
+        [Tooltip("Use single tape type to smaller build size")]
+		[HideInInspector]
+        public Optional<Mode> _singleTape = new Optional<Mode>(Mode.Tape, false);
+		[Tooltip("Default Use tape texture as a negative")]
+		public bool  _negative;
 		[Tooltip("Default Glitch color")]
 		public Color _glitch = Color.red;
 		[HideInInspector]
 		public  float       _frameRate = 20f;
 		[HideInInspector]
-        public  Texture2D[] _clip;
+        public  Texture2D[] _tape;
+		[HideInInspector]
+        public  Texture2D[] _noise;
+		[HideInInspector]
+        public  Texture2D[] _shades;
+        private  Texture2D[] _clip;
 		
 		private float _playTime;
 		private float _yScanline;
@@ -50,12 +60,23 @@ namespace VolFx
 			if (isActive == false)
                 return false;
 			
+			if (_singleTape.Enabled)
+			{
+				_clip = _singleTape.Value switch
+				{
+					Mode.Tape   => _tape,
+					Mode.Noise  => _noise,
+					Mode.Shades => _shades,
+					_           => throw new ArgumentOutOfRangeException()
+				};
+			}
+
             // scale line
 			_yScanline += Time.deltaTime * 0.01f * settings._bleed.value;
 			_xScanline -= Time.deltaTime * 0.1f * settings._bleed.value;
             
 			var glitch = settings._glitch.overrideState ? settings._glitch.value : _glitch;
-						
+			
 			if (_yScanline >= 1)
 				_yScanline = Random.value;
             
@@ -78,7 +99,8 @@ namespace VolFx
             return true;
         }
 
-        protected override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null));
+        protected override bool _editorValidate => _clip == null || _clip.Length == 0 || (Application.isPlaying == false && _clip.Any(n => n == null))
+												   || ((_singleTape.Enabled && _tape != null && _noise != null && _shades != null) || (_singleTape.Enabled == false && (_tape == null || _noise == null || _shades == null)));
         protected override void _editorSetup(string folder, string asset)
         {
 #if UNITY_EDITOR
@@ -88,7 +110,7 @@ namespace VolFx
 							   .Select(n => UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(UnityEditor.AssetDatabase.GUIDToAssetPath(n)))
 							   .Where(n => n != null)
 							   .ToArray();
-							   
+			
 			_playTime = 0f;
 #endif
         }

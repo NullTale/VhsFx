@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-//  VhsFx © NullTale - https://twitter.com/NullTale/
+//  VhsFx © NullTale - https://x.com/NullTale
 namespace VolFx
 {
     [Serializable, VolumeComponentMenu("VolFx/Vhs")]

@@ -1,4 +1,5 @@
-﻿Shader "Hidden/Vol/Vhs" 
+﻿//  VhsFx © NullTale - https://x.com/NullTale
+Shader "Hidden/Vol/Vhs" 
 {
 	Properties 
 	{
