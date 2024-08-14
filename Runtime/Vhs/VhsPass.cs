@@ -35,7 +35,8 @@ namespace VolFx
         public  Texture2D[] _noise;
 		[HideInInspector]
         public  Texture2D[] _shades;
-        private  Texture2D[] _clip;
+		[HideInInspector]
+        public  Texture2D[] _clip;
 		
 		private float _playTime;
 		private float _yScanline;
