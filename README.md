@@ -16,8 +16,8 @@ Works as render feature or a pass for selective post processing [VolFx](https://
 * [Vhs]
 * [OldMovie](https://github.com/NullTale/OldMovieFx)
 * [GradientMap](https://github.com/NullTale/GradientMapFilter)
-* [ScreenOutline](https://github.com/NullTale/OutlineFilter)
-* [ImageFlow](https://github.com/NullTale/FlowFx)
+* [Outline](https://github.com/NullTale/OutlineFilter)
+* [Flow](https://github.com/NullTale/FlowFx)
 * [Pixelation](https://github.com/NullTale/PixelationFx)
 * [Ascii](https://github.com/NullTale/AsciiFx)
 * [Dither](https://github.com/NullTale/DitherFx)
