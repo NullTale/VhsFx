@@ -1,8 +1,9 @@
 # Vhs Fx
-• Dev by NullTale - author's games, materials, graphics <br>
-[![Twitter](https://img.shields.io/badge/Twitter-Twitter?logo=X&color=red)](https://twitter.com/NullTale)
-[![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=white)](https://discord.gg/CkdQvtA5un)
-[![Asset Store](https://img.shields.io/badge/Asset%20Store-asd?logo=Unity&color=blue)](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
+Dev by NullTale - author's games, materials, graphics <br>
+[![Itch](https://img.shields.io/badge/Itch-Itch?logo=Itch.io&color=black)](https://nulltale.itch.io)
+[![Twitter](https://img.shields.io/badge/Twitter-Twitter?logo=X&color=black)](https://twitter.com/NullTale)
+[![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=black)](https://discord.gg/CkdQvtA5un)
+[![Asset Store](https://img.shields.io/badge/Asset%20Store-asd?logo=Unity&color=black)](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
 
 FOR NOT COMMERCIAL USE ONLY, it can be used for jems learning etc<br>
 Read a license, full version available on the [Asset Store](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
