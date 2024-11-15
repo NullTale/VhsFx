@@ -1,6 +1,6 @@
 # Vhs Fx
-Dev by NullTale - author's games, materials, graphics <br>
-[![Itch](https://img.shields.io/badge/Itch-Itch?logo=Itch.io&color=white)](https://nulltale.itch.io)
+Dev by NullTale<br>
+[![Itch](https://img.shields.io/badge/Web-Itch?logo=Itch.io&color=white)](https://nulltale.itch.io)
 [![Twitter](https://img.shields.io/badge/Twitter-Twitter?logo=X&color=red)](https://twitter.com/NullTale)
 [![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=white)](https://discord.gg/CkdQvtA5un)
 [![Asset Store](https://img.shields.io/badge/Asset%20Store-asd?logo=Unity&color=blue)](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
@@ -8,7 +8,7 @@ Dev by NullTale - author's games, materials, graphics <br>
 • Vhs post effect for Unity Urp, controlled via volume profile<br>
 Works as render feature or a pass for selective post processing [VolFx](https://github.com/NullTale/VolFx)
 
-FOR NOT COMMERCIAL USE ONLY, it can be used for jems learning etc<br>
+FOR NOT COMMERCIAL USE ONLY, it can be used for jems, free app, learning etc<br>
 Read a license, full version available on the [Asset Store](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
 
 ![_cover](https://github.com/NullTale/VhsFx/assets/1497430/136361c4-acfc-4142-938a-69c9bdf2b2be) <br>
