@@ -3,7 +3,6 @@ Dev by NullTale<br>
 [![Itch](https://img.shields.io/badge/Web-Itch?logo=Itch.io&color=white)](https://nulltale.itch.io)
 [![Twitter](https://img.shields.io/badge/Twitter-Twitter?logo=X&color=red)](https://twitter.com/NullTale)
 [![Tg](https://img.shields.io/badge/Tg-Telegram?logo=telegram&color=white)](https://t.me/nulltalescape)
-[![Discord](https://img.shields.io/badge/Discord-Discord?logo=discord&color=white)](https://discord.gg/CkdQvtA5un)
 [![Asset Store](https://img.shields.io/badge/Asset%20Store-asd?logo=Unity&color=blue)](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
 
 • Vhs post effect for Unity Urp, controlled via volume profile<br>
