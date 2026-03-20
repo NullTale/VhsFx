@@ -1,7 +1,7 @@
 # Vhs Fx
 Dev by NullTale<br>
-[![Itch](https://img.shields.io/badge/Itch-Itch?logo=Itch.io&color=white)](https://nulltale.itch.io)
-[![Artstation](https://img.shields.io/badge/Artstation-Itch?logo=Artstation&color=white)](https://nulltale.itch.io)
+[![Itch](https://img.shields.io/badge/Itch-Itch?logo=Itch.io&color=black)](https://nulltale.itch.io)
+[![Artstation](https://img.shields.io/badge/Artstation-Itch?logo=Artstation&color=white)](https://www.artstation.com/nulltale)
 [![Asset Store](https://img.shields.io/badge/Asset%20Store-asd?logo=Unity&color=blue)](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/270015)
 
 FOR NON COMMERCIAL USE ONLY - version is no longer supported and cannot be used in commercial purposes
